@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puisi Maaf untuk Pasangan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 16px rgba(31, 38, 135, 0.37);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .quote {
+            color: #f0f0f0;
+            font-size: 1em;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            white-space: pre-line;
+        }
+        .author, .from-to {
+            color: #d1d1d1;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        .new-quote, .prev-photo, .next-photo {
+            background-color: #ffffff;
+            color: #764ba2;
+            border: none;
+            padding: 8px 16px;
+            font-size: 0.9em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 5px;
+        }
+        .new-quote:hover, .prev-photo:hover, .next-photo:hover {
+            background-color: #764ba2;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .photo-frame img.active {
+            opacity: 1;
+        }
+        .quotes-container {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        .quotes-container p {
+            color: #f0f0f0;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="photo-frame">
+            <img src="IMG-20240913-WA0006.jpg" alt="Foto Berdua 1" class="active">
+            <img src="IMG_20240919_161721_130-picsay.jpg" alt="Foto Berdua 2">
+            <img src="IMG_20240829_151703.jpg" alt="Foto Berdua 3">
+            <img src="IMG_20240905_14160797.jpg" alt="Foto Berdua 4">
+            <img src="Screenshot_2024-08-30-22-12-44-47_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Foto Berdua 5">
+        </div>
+        <button class="prev-photo" onclick="changePhoto(-1)">&#10094;</button>
+        <button class="next-photo" onclick="changePhoto(1)">&#10095;</button>
+        <h1>Jangan sedih terus yaaa</h1>
+        <p class="quote">Dalam diam, kuucap maaf
+Untuk hati yang terluka
+Biarkan aku memperbaiki
+Setiap kesalahan yang ada</p>
+        <p class="author">- Riyan</p>
+        <p class="from-to">Untuk: Nisa</p>
+        <button class="new-quote" onclick="newQuote()">Puisi Baru</button>
+        <div class="quotes-container">
+            <p>Maafkan aku, cintaku
+Atas segala kesalahan
+Ku berjanji tulus padamu
+Untuk menjadi lebih baikan</p>
+            <p>Penyesalan menghantui jiwa
+Bisakah kita mulai lagi?
+Dari awal yang baru, berdua
+Meniti kasih yang tak terbagi</p>
+            <p>Cintaku padamu mengalir
+Lebih besar dari kesalahan
+Maafkanlah aku, kekasih
+Biarkan hati kita bersatu kembali</p>
+            <p>Ku tahu aku telah salah
+Izinkan aku menebus dosa
+Membuatmu bahagia, oh indah
+Dalam pelukan cinta kita</p>
+            <p>Maaf telah menyakiti hatimu
+Kau sangat berharga, sayang
+Biarkan aku memeluk jiwamu
+Dalam kasih yang tak akan hilang</p>
+        </div>
+    </div>
+
+    <script>
+        const quotes = [
+            { text: "Dalam diam, kuucap maaf\nUntuk hati yang terluka\nBiarkan aku memperbaiki\nSetiap kesalahan yang ada", author: "Riyan" },
+            { text: "Penyesalan menghantui jiwa\nBisakah kita mulai lagi?\nDari awal yang baru, berdua\nMeniti kasih yang tak terbagi", author: "Riyan" },
+            { text: "Cintaku padamu mengalir\nLebih besar dari kesalahan\nMaafkanlah aku, kekasih\nBiarkan hati kita bersatu kembali", author: "Riyan" },
+            { text: "Ku tahu aku telah salah\nIzinkan aku menebus dosa\nMembuatmu bahagia, oh indah\nDalam pelukan cinta kita", author: "Riyan" },
+            { text: "Maaf telah menyakiti hatimu\nKau sangat berharga, sayang\nBiarkan aku memeluk jiwamu\nDalam kasih yang tak akan hilang", author: "Riyan" }
+        ];
+
+        let currentPhotoIndex = 0;
+        const photos = document.querySelectorAll('.photo-frame img');
+
+        function newQuote() {
+            const quote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.querySelector('.quote').textContent = quote.text;
+            document.querySelector('.author').textContent = `- ${quote.author}`;
+            document.querySelector('.from-to').textContent = 'Untuk: Nisa';
+        }
+
+        function changePhoto(direction) {
+            photos[currentPhotoIndex].classList.remove('active');
+            currentPhotoIndex = (currentPhotoIndex + direction + photos.length) % photos.length;
+            photos[currentPhotoIndex].classList.add('active');
+        }
+    </script>
+</body>
+</html>
